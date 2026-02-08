@@ -57,6 +57,11 @@ jobs:
 
       - name: Setup Terraform with specified version on the runner
         uses: hashicorp/setup-terraform@v3
+        #with:
+        #    terraform_version: 1.6.5
+
+      - name: Verify Terraform version
+        run: terraform version || echo ("Terraform is not installed" && exit 1)
 
       - name: Terraform Init
         id: init
