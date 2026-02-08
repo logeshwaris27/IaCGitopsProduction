@@ -62,6 +62,10 @@ jobs:
 
       - name: Verify Terraform version
         run: terraform version || echo ("Terraform is not installed" && exit 1)
+       #- name: Run plan only if init succeeded
+       # if: steps.init.outcome == 'success'
+       #run: terraform plan
+
 
       - name: Terraform Init
         id: init
